@@ -10,5 +10,5 @@ completion = 0
 time = 0
 overhead = 1
 quantum = 2
-
+;
 while completion !=5:
