@@ -13,7 +13,10 @@ class Processes():
     #sorts the list by arrival time
     def queueMaker():
         list = Processes.processesList
-        queue = sorted_list=sorted(list, key=lambda list : list[0])
+        queue = []
+        
+
+
         return queue
         
             
