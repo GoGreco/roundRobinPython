@@ -16,12 +16,8 @@ queue = [p1, p2, p3, p4, p5]
 # Sort the queue based on the first value of each tuple
 queue = sorted(queue, key=lambda x: x[1])
 
-
-                
-
 #flag variable
 completion = 0
-
 
 #defines the time in wich the simulation will occur
 #all the time units are seconds
@@ -48,12 +44,10 @@ while completion != 5:
         completion += 1
         returnTime.append([queue[n][0], time-queue[n][1]])
 
-
     elif queue[n][2]>= quantum:
         queue[n][2] -=quantum 
         time += quantum
         time += overhead
-
 
         #when the execTime becomes 0, the return time is calculated (Final execTime - arrivalTime)
         # it also increasses the flag variable in 1
@@ -65,10 +59,12 @@ while completion != 5:
     if n >=5:
         n = 0
 
+
 #calculates the waitingTime of each program by compairing the returnTime and the responseTime
 #also calculates the avarage for each return and response times
 sumResponse = 0
 sumReturn = 0
+
 
 for x in range(len(responseTime)):
     waitingTime.append([queue[x][0], returnTime[x][1] - responseTime[x][1]])
@@ -79,14 +75,9 @@ averageResponse = sumResponse/5
 averageReturn = sumReturn/5
 
 
-
 print("Resultados para o Round Robin: ")
 print(f"A ordem de atendimento foi: {queue[0][0]}->{queue[1][0]}->{queue[2][0]}->{queue[3][0]}->{queue[4][0]};")
 print(f"Os tempos de resposta foram: {responseTime[0]}, {responseTime[1]}, {responseTime[3]}, {responseTime[2]}, {responseTime[4]}")
 print(f"Os tempos de retorno foram: {returnTime[0]}, {returnTime[1]}, {returnTime[3]}, {returnTime[2]}, {returnTime[4]}")
 print(f"A média dos tempos de resposta foi: {averageResponse}")
 print(f"A media dos tempo de retorno é de: {averageReturn}")
-
-
-  
-       
