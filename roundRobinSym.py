@@ -6,7 +6,7 @@ p3 = ['p3', 1, 1, 0]
 p4 = ['p4', 0, 15, 0]
 p5 = ['p5', 2, 10, 0]
 
-waitingTime=[]
+waitingTime = []
 responseTime = []
 returnTime = []
 
@@ -66,12 +66,27 @@ while completion != 5:
         n = 0
 
 #calculates the waitingTime of each program by compairing the returnTime and the responseTime
+#also calculates the avarage for each return and response times
+sumResponse = 0
+sumReturn = 0
+
 for x in range(len(responseTime)):
     waitingTime.append([queue[x][0], returnTime[x][1] - responseTime[x][1]])
+    sumResponse += responseTime[x][1]
+    sumReturn += returnTime[x][1]
 
-            
-print(returnTime)
-print(responseTime)
-print(waitingTime)
+averageResponse = sumResponse/5
+averageReturn = sumReturn/5
+
+
+
+print("Resultados para o Round Robin: ")
+print(f"A ordem de atendimento foi: {queue[0][0]}->{queue[1][0]}->{queue[2][0]}->{queue[3][0]}->{queue[4][0]};")
+print(f"Os tempos de resposta foram: {responseTime[0]}, {responseTime[1]}, {responseTime[3]}, {responseTime[2]}, {responseTime[4]}")
+print(f"Os tempos de retorno foram: {returnTime[0]}, {returnTime[1]}, {returnTime[3]}, {returnTime[2]}, {returnTime[4]}")
+print(f"A média dos tempos de resposta foi: {averageResponse}")
+print(f"A media dos tempo de retorno é de: {averageReturn}")
+
+
   
        
